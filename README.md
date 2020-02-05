@@ -1,88 +1,20 @@
-# Project Title
+# RCNN implimentation
 
-One Paragraph of project description goes here
+Computer vision as we know always move around classification and object detection and hence discussing some of the early breakthroughs are pretty sure helpful in understanding modern research. R-CNN was one of the first approach to discuss detection through convolution. Instead of using huge number of proposals R-CNN uses only first 2000 of them, which make it faster than other approches available at that time. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Using this notebook is quite simple, you have to just open it and set directory to your google drive with data loaded in it. Running individual cells afterward will easily impliment our network.
 
-### Prerequisites
+## Network
 
-What things you need to install the software and how to install them
+let's discuss it in steps-
+1. First step- Running selective search on indvidual image to obatain region proposals(2000 here).
+2. Second step- Classifying region proposals as positive and negative example based on IOU(IOU explained properly in notebook itself).
+3. Third step- Passing every proposal through pretrained network on some image dataset(We use VGG 16 trained on ImageNet) to output a fixed size feature vecotr(4096 here).
+4. Fourth step- Using this feature vector to train a SVM.
+5. Fifth step- Use bounding box regression for more accurate results(We haven't done it here).
 
-```
-Give examples
-```
+Note- Hyperparamters were not tunned properly because the work is not to show the acccuracy but to make you aware about implimentation of R-CNN. 
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+So,finally it will give you idea of R-CNN with implimentaion for better understanding.
