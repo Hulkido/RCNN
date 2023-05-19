@@ -9,9 +9,9 @@ Using this notebook is quite simple, you have to just open it and set directory 
 ## Network
 
 let's discuss it in steps-
-1. First step- Running selective search on indvidual image to obatain region proposals(2000 here).
+1. First step- Running selective search on indvidual image to obtain region proposals(2000 here).
 2. Second step- Classifying region proposals as positive and negative example based on IOU(IOU explained properly in notebook itself).
-3. Third step- Passing every proposal through pretrained network on some image dataset(We use VGG 16 trained on ImageNet) to output a fixed size feature vecotr(4096 here).
+3. Third step- Passing every proposal through pretrained network on some image dataset(We use VGG 16 trained on ImageNet) to output a fixed size feature vector(4096 here).
 4. Fourth step- Using this feature vector to train a SVM.
 5. Fifth step- Use bounding box regression for more accurate results(We haven't done it here).
 
